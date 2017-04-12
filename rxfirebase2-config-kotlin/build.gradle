@@ -61,3 +61,6 @@ dependencies {
     compile "org.jetbrains.kotlin:kotlin-stdlib:${kotlinVersion}"
 }
 
+apply from: 'javadoc.gradle'
+apply plugin: 'com.github.dcendents.android-maven'
+apply from: 'jacoco.gradle'

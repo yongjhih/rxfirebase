@@ -42,3 +42,7 @@ dependencies {
     provided rootProject.ext.kotlin
     provided rootProject.ext.rxJava2
 }
+
+apply from: 'javadoc.gradle'
+apply plugin: 'com.github.dcendents.android-maven'
+apply from: 'jacoco.gradle'

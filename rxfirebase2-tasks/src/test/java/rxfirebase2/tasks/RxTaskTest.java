@@ -2,7 +2,6 @@ package rxfirebase2.tasks;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
-import com.google.android.gms.tasks.Tasks;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -10,13 +9,9 @@ import org.mockito.ArgumentCaptor;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import io.reactivex.functions.Predicate;
 import io.reactivex.observers.TestObserver;
 
-import static org.mockito.Mockito.mock;
+import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
@@ -28,6 +23,8 @@ public class RxTaskTest {
 
     @Before
     public void setup() {
+        MockitoAnnotations.initMocks(this);
+
         onComplete = ArgumentCaptor.forClass(OnCompleteListener.class);
     }
 
@@ -38,12 +35,20 @@ public class RxTaskTest {
                 .thenReturn(hello);
         when(mockHelloTask.isSuccessful())
                 .thenReturn(true);
+        when(mockHelloTask.addOnCompleteListener(onComplete.capture()))
+                .thenReturn(mockHelloTask);
 
-        RxTask.single(mockHelloTask)
-                .test()
-                .assertValue(hello)
-                .assertNoErrors()
-                .assertComplete();
+        TestObserver<String> obs = TestObserver.create();
+        RxTask.single(mockHelloTask).subscribe(obs);
+        verify(mockHelloTask).addOnCompleteListener(onComplete.capture());
+        onComplete.getValue().onComplete(mockHelloTask);
+
+        obs.assertValue(hello)
+           .assertNoErrors()
+           .assertComplete();
+
+        verify(mockHelloTask).addOnCompleteListener(any(OnCompleteListener.class));
+        verify(mockHelloTask).getResult();
     }
 
     @Test
@@ -53,10 +58,19 @@ public class RxTaskTest {
                 .thenReturn(false);
         when(mockHelloTask.getException())
                 .thenReturn(new RuntimeException(hello));
-        RxTask.single(mockHelloTask)
-                .test()
-                .assertError(RuntimeException.class)
-                .assertErrorMessage(hello);
+        when(mockHelloTask.addOnCompleteListener(onComplete.capture()))
+                .thenReturn(mockHelloTask);
+
+        TestObserver<String> obs = TestObserver.create();
+        RxTask.single(mockHelloTask).subscribe(obs);
+        verify(mockHelloTask).addOnCompleteListener(onComplete.capture());
+        onComplete.getValue().onComplete(mockHelloTask);
+        obs.assertError(RuntimeException.class)
+           .assertErrorMessage(hello)
+           .dispose();
+
+        verify(mockHelloTask).addOnCompleteListener(any(OnCompleteListener.class));
+        verify(mockHelloTask).getException();
     }
 
     @Test
@@ -66,11 +80,17 @@ public class RxTaskTest {
                 .thenReturn(hello);
         when(mockHelloTask.isSuccessful())
                 .thenReturn(true);
+        when(mockHelloTask.addOnCompleteListener(onComplete.capture()))
+                .thenReturn(mockHelloTask);
 
-        RxTask.completes(mockHelloTask)
-                .test()
-                .assertNoErrors()
-                .assertComplete();
+        TestObserver<String> obs = TestObserver.create();
+        RxTask.completes(mockHelloTask).subscribe(obs);
+        verify(mockHelloTask).addOnCompleteListener(onComplete.capture());
+        onComplete.getValue().onComplete(mockHelloTask);
+        obs.assertNoErrors()
+           .assertComplete();
+
+        verify(mockHelloTask).addOnCompleteListener(any(OnCompleteListener.class));
     }
 
     @Test
@@ -80,10 +100,23 @@ public class RxTaskTest {
                 .thenReturn(false);
         when(mockHelloTask.getException())
                 .thenReturn(new RuntimeException(hello));
+        when(mockHelloTask.addOnCompleteListener(onComplete.capture()))
+                .thenReturn(mockHelloTask);
+
+        TestObserver<String> obs = TestObserver.create();
 
         RxTask.completes(mockHelloTask)
-                .test()
-                .assertError(RuntimeException.class)
-                .assertErrorMessage(hello);
+              .subscribe(obs);
+
+        verify(mockHelloTask).addOnCompleteListener(onComplete.capture());
+        onComplete.getValue().onComplete(mockHelloTask);
+
+        obs.dispose();
+
+        obs.assertError(RuntimeException.class)
+           .assertErrorMessage(hello);
+
+        verify(mockHelloTask).addOnCompleteListener(any(OnCompleteListener.class));
+        verify(mockHelloTask).getException();
     }
 }

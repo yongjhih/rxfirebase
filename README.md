@@ -28,13 +28,15 @@ See [official documentation](https://firebase.google.com/docs/) for the details.
 ## Installation
 
 ```gradle
-compile 'com.yongjhih.rxfirebase:rxfirebase2-config:10.2.0'
-compile 'com.yongjhih.rxfirebase:rxfirebase2-config-kotlin:10.2.0' // optional
-compile 'com.yongjhih.rxfirebase:rxfirebase2-tasks:10.2.0'
-compile 'com.yongjhih.rxfirebase:rxfirebase2-tasks-kotlin:10.2.0' // optional
+compile 'com.yongjhih.rxfirebase:rxfirebase2-config:0.0.1'
+compile 'com.yongjhih.rxfirebase:rxfirebase2-config-kotlin:0.0.1' // optional
+compile 'com.yongjhih.rxfirebase:rxfirebase2-auth:0.0.1'
+compile 'com.yongjhih.rxfirebase:rxfirebase2-auth-kotlin:0.0.1' // optional
+compile 'com.yongjhih.rxfirebase:rxfirebase2-database:0.0.1'
+compile 'com.yongjhih.rxfirebase:rxfirebase2-database-kotlin:0.0.1' // optional
 
-// coming soon: compile 'com.yongjhih.rxfirebase:rxfirebase2-auth:10.2.0'
-// coming soon: compile 'com.yongjhih.rxfirebase:rxfirebase2-database:10.2.0'
+compile 'com.yongjhih.rxfirebase:rxfirebase2-tasks:0.0.1'
+compile 'com.yongjhih.rxfirebase:rxfirebase2-tasks-kotlin:0.0.1' // optional
 ```
 
 ## License
