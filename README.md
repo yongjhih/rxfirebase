@@ -6,27 +6,21 @@ RxJava binding APIs for [Firebase](https://firebase.google.com/) Android SDK.
 ## Usage
 
 ```java
-RxFirebaseRemoteConfig.fetches(firebaseRemoteConfig).subscribe();
+RxFirebaseRemoteConfig.fetches(() -> firebaseRemoteConfig).subscribe();
 ```
+
+Kotlin:
 
 ```kt
 firebaseRemoteConfig.fetches().subscribe();
 ```
 
 ```java
-RxTasks.completes(firebaseRemoteConfig.fetch()).subscribe();
-```
-
-```kt
-firebaseRemoteConfig.fetch().completes().subscribe();
+RxTasks.completes(() -> firebaseRemoteConfig.fetch()).subscribe();
 ```
 
 ```java
-RxTasks.single(firebaseUser.getToken()).map(token -> token.getToken()).subscribe();
-```
-
-```kt
-firebaseUser.getToken().single().map { it.token } .subscribe();
+RxTasks.single(() -> firebaseUser.getToken()).map(token -> token.getToken()).subscribe();
 ```
 
 See [official documentation](https://firebase.google.com/docs/) for the details.

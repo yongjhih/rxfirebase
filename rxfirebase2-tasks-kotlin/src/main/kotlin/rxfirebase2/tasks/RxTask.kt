@@ -11,8 +11,8 @@ import rxfirebase2.tasks.RxTask
 
 inline fun <T> Task<T>.completes()
         : Completable
-        = RxTask.completes(this)
+        = RxTask.completes { this }
 
 inline fun <T> Task<T>.single()
         : Single<T>
-        = RxTask.single(this)
+        = RxTask.single { this }
