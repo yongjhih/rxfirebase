@@ -31,6 +31,8 @@ android {
 }
 
 dependencies {
+    compile project(':rxfirebase2-tasks')
+
     compile rootProject.ext.supportAnnotations
 
     provided rootProject.ext.firebaseDatabase

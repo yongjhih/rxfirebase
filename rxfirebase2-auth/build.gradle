@@ -31,6 +31,8 @@ android {
 }
 
 dependencies {
+    compile project(':rxfirebase2-tasks')
+
     compile rootProject.ext.supportAnnotations
 
     provided rootProject.ext.firebaseAuth
@@ -39,10 +41,4 @@ dependencies {
     testCompile rootProject.ext.assertj
     testCompile rootProject.ext.junit
     testCompile rootProject.ext.mockito
-}
-
-apply plugin: 'com.github.kt3k.coveralls'
-
-coveralls {
-    jacocoReportPath = "${buildDir}/reports/coverageReport/coverageReport.xml"
 }

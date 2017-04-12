@@ -28,3 +28,6 @@ proguard/
 
 # Captures
 captures/
+
+.*.sw[p-z]
+*~
