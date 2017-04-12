@@ -48,3 +48,7 @@ apply plugin: 'com.github.kt3k.coveralls'
 coveralls {
     jacocoReportPath = "${buildDir}/reports/coverageReport/coverageReport.xml"
 }
+
+apply from: 'javadoc.gradle'
+apply plugin: 'com.github.dcendents.android-maven'
+apply from: 'jacoco.gradle'
