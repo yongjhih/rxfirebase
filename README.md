@@ -1,5 +1,5 @@
 # RxFirebase
-[![CircleCI](https://circleci.com/gh/yongjhih/RxFirebase.svg?style=shield)](https://circleci.com/gh/yongjhih/RxFirebase)
+[![CircleCI](https://circleci.com/gh/yongjhih/rxfirebase.svg?style=shield)](https://circleci.com/gh/yongjhih/rxfirebase)
 
 RxJava binding APIs for [Firebase](https://firebase.google.com/) Android SDK.
 
