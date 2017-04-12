@@ -36,12 +36,9 @@ android {
 }
 
 dependencies {
-    compile project(':firebase-auth')
+    compile project(':rxfirebase2-database')
 
-    provided rootProject.ext.firebaseAuth
+    provided rootProject.ext.firebaseDatabase
     provided rootProject.ext.kotlin
-    provided rootProject.ext.rxJava
+    provided rootProject.ext.rxJava2
 }
-
-apply from: rootProject.file('gradle/gradle-mvn-local.gradle')
-apply from: rootProject.file('gradle/gradle-mvn-push.gradle')

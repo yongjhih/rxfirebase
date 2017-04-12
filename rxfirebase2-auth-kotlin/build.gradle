@@ -1,4 +1,5 @@
 apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
 
 android {
     compileSdkVersion rootProject.ext.compileSdkVersion
@@ -22,6 +23,10 @@ android {
         textOutput 'stdout'
     }
 
+    sourceSets {
+        main.java.srcDirs += 'src/main/kotlin'
+    }
+
     buildTypes {
         release {
             minifyEnabled false
@@ -31,21 +36,9 @@ android {
 }
 
 dependencies {
-    compile rootProject.ext.supportAnnotations
+    compile project(':rxfirebase2-auth')
 
-    provided rootProject.ext.firebaseDatabase
-    provided rootProject.ext.rxJava
-
-    testCompile rootProject.ext.assertj
-    testCompile rootProject.ext.junit
-    testCompile rootProject.ext.mockito
+    provided rootProject.ext.firebaseAuth
+    provided rootProject.ext.kotlin
+    provided rootProject.ext.rxJava2
 }
-
-apply plugin: 'com.github.kt3k.coveralls'
-
-coveralls {
-    jacocoReportPath = "${buildDir}/reports/coverageReport/coverageReport.xml"
-}
-
-apply from: rootProject.file('gradle/gradle-mvn-local.gradle')
-apply from: rootProject.file('gradle/gradle-mvn-push.gradle')

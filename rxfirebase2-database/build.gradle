@@ -33,8 +33,8 @@ android {
 dependencies {
     compile rootProject.ext.supportAnnotations
 
-    provided rootProject.ext.firebaseAuth
-    provided rootProject.ext.rxJava
+    provided rootProject.ext.firebaseDatabase
+    provided rootProject.ext.rxJava2
 
     testCompile rootProject.ext.assertj
     testCompile rootProject.ext.junit
@@ -46,6 +46,3 @@ apply plugin: 'com.github.kt3k.coveralls'
 coveralls {
     jacocoReportPath = "${buildDir}/reports/coverageReport/coverageReport.xml"
 }
-
-apply from: rootProject.file('gradle/gradle-mvn-local.gradle')
-apply from: rootProject.file('gradle/gradle-mvn-push.gradle')

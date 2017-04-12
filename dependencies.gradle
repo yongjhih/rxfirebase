@@ -19,6 +19,6 @@ ext {
     junit = 'junit:junit:4.12'
     kotlin = "org.jetbrains.kotlin:kotlin-stdlib:${kotlinVersion}"
     mockito = 'org.mockito:mockito-core:2.0.7-beta'
-    rxJava = 'io.reactivex.rxjava2:rxjava:2.0.7'
+    rxJava2 = 'io.reactivex.rxjava2:rxjava:2.0.7'
     supportAnnotations = 'com.android.support:support-annotations:25.1.0'
 }
