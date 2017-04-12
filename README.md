@@ -35,6 +35,20 @@ compile 'com.yongjhih.rxfirebase:rxfirebase2-auth-kotlin:0.0.1' // optional
 compile 'com.yongjhih.rxfirebase:rxfirebase2-database:0.0.1'
 compile 'com.yongjhih.rxfirebase:rxfirebase2-database-kotlin:0.0.1' // optional
 
+// TODO: compile 'com.yongjhih.rxfirebase:rxfirebase2-messaging:10.2.1'
+// TODO: compile 'com.yongjhih.rxfirebase:rxfirebase2-messaging-kotlin:10.2.1'
+// TODO: compile 'com.yongjhih.rxfirebase:rxfirebase2-crash:10.2.1'
+// TODO: compile 'com.yongjhih.rxfirebase:rxfirebase2-crash-kotlin:10.2.1'
+// TODO: compile 'com.yongjhih.rxfirebase:rxfirebase2-storage:10.2.1'
+// TODO: compile 'com.yongjhih.rxfirebase:rxfirebase2-storage-kotlin:10.2.1'
+
+// TODO: compile 'com.yongjhih.rxfirebase:rxfirebase2-invites:10.2.1'
+// TODO: compile 'com.yongjhih.rxfirebase:rxfirebase2-invites-kotlin:10.2.1'
+// TODO: compile 'com.yongjhih.rxfirebase:rxfirebase2-ads:10.2.1'
+// TODO: compile 'com.yongjhih.rxfirebase:rxfirebase2-ads-kotlin:10.2.1'
+// TODO: compile 'com.yongjhih.rxfirebase:rxfirebase2-appindexing:10.2.1'
+// TODO: compile 'com.yongjhih.rxfirebase:rxfirebase2-appindexing-kotlin:10.2.1'
+
 compile 'com.yongjhih.rxfirebase:rxfirebase2-tasks:0.0.1'
 compile 'com.yongjhih.rxfirebase:rxfirebase2-tasks-kotlin:0.0.1' // optional
 ```
