@@ -13,7 +13,9 @@ public final class RxFirebaseRemoteConfig {
     @CheckResult
     @NonNull
     public static Completable fetches(@NonNull final FirebaseRemoteConfig config) {
-        return RxTask.completes(config.fetch((config.getInfo().getConfigSettings().isDeveloperModeEnabled()) ? 0L : 3600L)).doOnComplete(new Action() {
+        return RxTask.completes(
+                config.fetch((config.getInfo().getConfigSettings().isDeveloperModeEnabled())
+                        ? 0L : 3600L)).doOnComplete(new Action() {
             @Override
             public void run() throws Exception {
                 config.activateFetched();

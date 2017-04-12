@@ -65,7 +65,9 @@
         <module name="MethodName" >
             <property name="format" value="^[a-z][a-zA-Z0-9]*(_[a-zA-Z0-9]+)*$"/>
         </module>
-        <module name="PackageName" />
+        <module name="PackageName">
+            <property name="format" value="^[a-z]+[0-9]*(\.[a-z][a-z0-9]*)*$"/>
+        </module>
         <module name="ParameterName" />
         <module name="StaticVariableName" />
         <module name="TypeName" />
@@ -96,16 +98,16 @@
             <property name="illegalPkgs" value="org.mockito.internal" />
             <message key="import.illegal" value="Import from illegal package - {0}. Use org.mockito.Matchers to instantiate argument matchers; or org.hamcrest.Matchers for assertThat." />
         </module>
-        <module name="ImportOrder">
-            <!-- Checks for out of order import statements. -->
+        <!--<module name="ImportOrder">-->
+            <!--[> Checks for out of order import statements. <]-->
 
-            <property name="sortStaticImportsAlphabetically" value="true"/>
-            <property name="severity" value="error"/>
-            <property name="groups" value="com.google,com,junit,net,org,android,/^javax?\./"/>
-            <!-- This ensures that static imports go first. -->
-            <property name="option" value="bottom"/>
-            <property name="tokens" value="IMPORT, STATIC_IMPORT"/>
-        </module>
+            <!--<property name="sortStaticImportsAlphabetically" value="true"/>-->
+            <!--<property name="severity" value="error"/>-->
+            <!--<property name="groups" value="com.google,com,junit,net,org,android,/^javax?\./"/>-->
+            <!--[> This ensures that static imports go first. <]-->
+            <!--<property name="option" value="bottom"/>-->
+            <!--<property name="tokens" value="IMPORT, STATIC_IMPORT"/>-->
+        <!--</module>-->
 
         <!-- Checks for whitespace. -->
         <!-- See http://checkstyle.sourceforge.net/config_whitespace.html -->

@@ -58,60 +58,89 @@ public final class RxFirebaseUser {
             public Task<AuthResult> call() throws Exception {
                 return user.linkWithCredential(credential);
             }
-        })
-        .map(new Function<AuthResult, FirebaseUser>() {
+        }).map(RxFirebaseAuth.authToUserFunction());
+    }
+
+    @CheckResult
+    @NonNull
+    public static Completable reauthenticate(
+            @NonNull final FirebaseUser user, @NonNull final AuthCredential credential) {
+        return RxTask.completes(new Callable<Task<Void>>() {
             @Override
-            public FirebaseUser apply(@NonNull AuthResult authResult) throws Exception {
-                return authResult.getUser();
+            public Task<Void> call() throws Exception {
+                return user.reauthenticate(credential);
             }
         });
     }
 
     @CheckResult
     @NonNull
-    public static Completable reauthenticate(
-            @NonNull FirebaseUser user, @NonNull AuthCredential credential) {
-        return Completable.create(new UserReauthenticateOnSubscribe(user, credential));
+    public static Completable reload(@NonNull final FirebaseUser user) {
+        return RxTask.completes(new Callable<Task<Void>>() {
+            @Override
+            public Task<Void> call() throws Exception {
+                return user.reload();
+            }
+        });
     }
 
     @CheckResult
     @NonNull
-    public static Completable reload(@NonNull FirebaseUser user) {
-        return Completable.create(new UserReloadOnSubscribe(user));
-    }
-
-    @CheckResult
-    @NonNull
-    public static Completable sendEmailVerification(@NonNull FirebaseUser user) {
-        return Completable.create(new UserSendEmailVerificationOnSubscribe(user));
+    public static Completable sendEmailVerification(@NonNull final FirebaseUser user) {
+        return RxTask.completes(new Callable<Task<Void>>() {
+            @Override
+            public Task<Void> call() throws Exception {
+                return user.sendEmailVerification();
+            }
+        });
     }
 
     @CheckResult
     @NonNull
     public static Single<FirebaseUser> unlink(
-            @NonNull FirebaseUser user, @NonNull String provider) {
-        return Single.create(new UserUnlinkOnSubscribe(user, provider));
+            @NonNull final FirebaseUser user, @NonNull final String provider) {
+        return RxTask.single(new Callable<Task<AuthResult>>() {
+            @Override
+            public Task<AuthResult> call() throws Exception {
+                return user.unlink(provider);
+            }
+        }).map(RxFirebaseAuth.authToUserFunction());
     }
 
     @CheckResult
     @NonNull
     public static Completable updateEmail(
-            @NonNull FirebaseUser user, @NonNull String email) {
-        return Completable.create(new UserUpdateEmailOnSubscribe(user, email));
+            @NonNull final FirebaseUser user, @NonNull final String email) {
+        return RxTask.completes(new Callable<Task<Void>>() {
+            @Override
+            public Task<Void> call() throws Exception {
+                return user.updateEmail(email);
+            }
+        });
     }
 
     @CheckResult
     @NonNull
     public static Completable updatePassword(
-            @NonNull FirebaseUser user, @NonNull String password) {
-        return Completable.create(new UserUpdatePasswordOnSubscribe(user, password));
+            @NonNull final FirebaseUser user, @NonNull final String password) {
+        return RxTask.completes(new Callable<Task<Void>>() {
+            @Override
+            public Task<Void> call() throws Exception {
+                return user.updatePassword(password);
+            }
+        });
     }
 
     @CheckResult
     @NonNull
     public static Completable updateProfile(
-            @NonNull FirebaseUser user, @NonNull UserProfileChangeRequest request) {
-        return Completable.create(new UserUpdateProfileOnSubscribe(user, request));
+            @NonNull final FirebaseUser user, @NonNull final UserProfileChangeRequest request) {
+        return RxTask.completes(new Callable<Task<Void>>() {
+            @Override
+            public Task<Void> call() throws Exception {
+                return user.updateProfile(request);
+            }
+        });
     }
 
     private RxFirebaseUser() {
