@@ -8,6 +8,7 @@ buildscript {
     dependencies {
         classpath 'com.android.tools.build:gradle:2.3.0'
         classpath 'com.github.dcendents:android-maven-gradle-plugin:1.5'
+        classpath 'com.dicedmelon.gradle:jacoco-android:0.1.1'
     }
 }
 
@@ -18,6 +19,7 @@ repositories {
 
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
+//apply plugin: 'jacoco-android'
 
 android {
     compileSdkVersion 25
