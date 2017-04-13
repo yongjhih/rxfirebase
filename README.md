@@ -16,14 +16,6 @@ Kotlin:
 firebaseRemoteConfig.fetches().subscribe();
 ```
 
-```java
-RxTasks.completes(() -> firebaseRemoteConfig.fetch()).subscribe();
-```
-
-```java
-RxTasks.single(() -> firebaseUser.getToken()).map(token -> token.getToken()).subscribe();
-```
-
 See [official documentation](https://firebase.google.com/docs/) for the details.
 
 ## Installation
@@ -49,10 +41,18 @@ compile 'com.yongjhih.rxfirebase:rxfirebase2-database-kotlin:0.0.1' // optional
 // TODO: compile 'com.yongjhih.rxfirebase:rxfirebase2-ads-kotlin:10.2.1'
 // TODO: compile 'com.yongjhih.rxfirebase:rxfirebase2-appindexing:10.2.1'
 // TODO: compile 'com.yongjhih.rxfirebase:rxfirebase2-appindexing-kotlin:10.2.1'
-
-compile 'com.yongjhih.rxfirebase:rxfirebase2-tasks:0.0.1'
-compile 'com.yongjhih.rxfirebase:rxfirebase2-tasks-kotlin:0.0.1' // optional
 ```
+
+## Comparasion
+
+|                           | Multiple Libs | RxJava2 | Kotlin | Unit Test | RxTasks | jitpack | auth | database | storage | config | crash  | messaging  |
+|---------------------------|---------------|---------|--------|-----------|---------|---------|------|----------|---------|--------|--------|------------|
+| yongjhih/rxfirebase       |       x       | x       | x      |     x     | x       | x       | x    | x        | *       | x      | *      | *          |
+| nmoskalenko/RxFirebase    |               |         |        |     x     |         |         | x    | x        | x       |        |        |            |
+| kunny/RxFirebase          |       x       | x       | x      |     x     |         |         | x    | x        |         |        |        |            |
+| ezhome/Android-RxFirebase |               |         |        |     x     |         |         | x    | x        |         |        |        |            |
+| b3er/RxFirebase2          |       x       | x       | x      |     x     | x       |         | x    | x        | x       |        |        |            |
+| ashdavies/rx-firebase     |               | x       |        |     x     | x       |         | x    | x        |         |        |        |            |
 
 ## License
 

@@ -32,7 +32,7 @@ android {
 }
 
 dependencies {
-    compile project(':rxfirebase2-tasks')
+    compile 'com.github.yongjhih.rxtasks:rxtasks2:0.0.1'
 
     compile rootProject.ext.supportAnnotations
 
@@ -42,12 +42,6 @@ dependencies {
     testCompile rootProject.ext.assertj
     testCompile rootProject.ext.junit
     testCompile rootProject.ext.mockito
-}
-
-apply plugin: 'com.github.kt3k.coveralls'
-
-coveralls {
-    jacocoReportPath = "${buildDir}/reports/coverageReport/coverageReport.xml"
 }
 
 apply from: 'javadoc.gradle'

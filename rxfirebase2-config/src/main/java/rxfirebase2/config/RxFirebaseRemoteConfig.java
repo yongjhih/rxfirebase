@@ -7,7 +7,7 @@ import android.support.annotation.NonNull;
 
 import io.reactivex.Completable;
 import io.reactivex.functions.Action;
-import rxfirebase2.tasks.RxTask;
+import rxtasks2.RxTask;
 
 public final class RxFirebaseRemoteConfig {
     @CheckResult

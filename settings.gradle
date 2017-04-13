@@ -1,4 +1,3 @@
 include ':rxfirebase2-auth', ':rxfirebase2-auth-kotlin'
 include ':rxfirebase2-database', 'rxfirebase2-database-kotlin'
 include ':rxfirebase2-config', 'rxfirebase2-config-kotlin'
-include ':rxfirebase2-tasks', 'rxfirebase2-tasks-kotlin'

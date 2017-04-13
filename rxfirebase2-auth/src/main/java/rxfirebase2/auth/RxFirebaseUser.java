@@ -15,7 +15,7 @@ import java.util.concurrent.Callable;
 import io.reactivex.Completable;
 import io.reactivex.Single;
 import io.reactivex.functions.Function;
-import rxfirebase2.tasks.RxTask;
+import rxtasks2.RxTask;
 
 
 public final class RxFirebaseUser {
