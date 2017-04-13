@@ -43,7 +43,7 @@ compile 'com.yongjhih.rxfirebase:rxfirebase2-database-kotlin:0.0.1' // optional
 // TODO: compile 'com.yongjhih.rxfirebase:rxfirebase2-appindexing-kotlin:10.2.1'
 ```
 
-## Comparasion
+## Comparison
 
 |                           | Multiple Libs | RxJava2 | Kotlin | Unit Test | RxTasks | jitpack | auth | database | storage | config | crash  | messaging  |
 |---------------------------|---------------|---------|--------|-----------|---------|---------|------|----------|---------|--------|--------|------------|
