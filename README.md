@@ -54,6 +54,10 @@ compile 'com.yongjhih.rxfirebase:rxfirebase2-database-kotlin:0.0.1' // optional
 | b3er/RxFirebase2          |       x       | x       | x      |     x     | x       |         | x    | x        | x       |        |        |            |
 | ashdavies/rx-firebase     |               | x       |        |     x     | x       |         | x    | x        |         |        |        |            |
 
+## See Also
+
+* https://github.com/yongjhih/rxtasks
+
 ## License
 
 ```
