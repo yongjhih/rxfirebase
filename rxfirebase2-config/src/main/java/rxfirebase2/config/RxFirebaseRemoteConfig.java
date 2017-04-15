@@ -2,15 +2,18 @@ package rxfirebase2.config;
 
 import com.google.firebase.remoteconfig.FirebaseRemoteConfig;
 
-import android.support.annotation.CheckResult;
-import android.support.annotation.NonNull;
-
 import io.reactivex.Completable;
+import io.reactivex.annotations.CheckReturnValue;
+import io.reactivex.annotations.NonNull;
 import io.reactivex.functions.Action;
 import rxtasks2.RxTask;
 
 public final class RxFirebaseRemoteConfig {
-    @CheckResult
+    /**
+     * @param config
+     * @return
+     */
+    @CheckReturnValue
     @NonNull
     public static Completable fetches(@NonNull final FirebaseRemoteConfig config) {
         return RxTask.completes(

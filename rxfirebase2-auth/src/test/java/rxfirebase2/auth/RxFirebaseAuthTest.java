@@ -63,7 +63,7 @@ public class RxFirebaseAuthTest {
     public void testAuthStateChanges() {
         TestObserver<FirebaseAuth> obs = TestObserver.create();
 
-        RxFirebaseAuth.authStateChanges(mockFirebaseAuth)
+        RxFirebaseAuth.changes(mockFirebaseAuth)
                 .subscribe(obs);
 
         callOnAuthStateChanged();

@@ -1,6 +1,6 @@
 package rxfirebase2.database.model;
 
-import android.support.annotation.NonNull;
+import io.reactivex.annotations.NonNull;
 
 public final class Some<T> extends DataValue<T> {
 

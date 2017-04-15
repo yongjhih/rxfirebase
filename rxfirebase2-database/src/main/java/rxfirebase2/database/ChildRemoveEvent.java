@@ -2,12 +2,12 @@ package rxfirebase2.database;
 
 import com.google.firebase.database.DataSnapshot;
 
-import android.support.annotation.CheckResult;
-import android.support.annotation.NonNull;
+import io.reactivex.annotations.CheckReturnValue;
+import io.reactivex.annotations.NonNull;
 
 public final class ChildRemoveEvent extends ChildEvent {
 
-    @CheckResult
+    @CheckReturnValue
     @NonNull
     public static ChildRemoveEvent create(DataSnapshot dataSnapshot) {
         return new ChildRemoveEvent(dataSnapshot);

@@ -45,15 +45,6 @@ inline fun DatabaseReference.removesValue()
         : Completable
         = RxFirebaseDatabase.removeValue(this)
 
-inline fun DatabaseReference.runsTransaction(noinline task: (MutableData) -> Transaction.Result)
-        : Completable
-        = RxFirebaseDatabase.runTransaction(this, task)
-
-inline fun DatabaseReference.runsTransaction(
-        fireLocalEvents: Boolean, noinline task: (MutableData) -> Transaction.Result)
-        : Completable
-        = RxFirebaseDatabase.runTransaction(this, fireLocalEvents, task)
-
 inline fun DatabaseReference.setsPriority(priority: Any)
         : Completable
         = RxFirebaseDatabase.setPriority(this, priority)

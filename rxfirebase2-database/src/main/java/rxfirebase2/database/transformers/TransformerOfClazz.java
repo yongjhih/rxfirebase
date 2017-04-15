@@ -2,6 +2,8 @@ package rxfirebase2.database.transformers;
 
 import com.google.firebase.database.DataSnapshot;
 
+import io.reactivex.annotations.CheckReturnValue;
+import io.reactivex.annotations.NonNull;
 import rxfirebase2.database.model.DataValue;
 
 import io.reactivex.Observable;
@@ -14,12 +16,14 @@ public final class TransformerOfClazz<T>
 
     private final Class<T> clazz;
 
-    public TransformerOfClazz(Class<T> clazz) {
+    public TransformerOfClazz(@NonNull Class<T> clazz) {
         this.clazz = clazz;
     }
 
     @Override
-    public ObservableSource<DataValue<T>> apply(Observable<DataSnapshot> upstream) {
+    @NonNull
+    @CheckReturnValue
+    public ObservableSource<DataValue<T>> apply(@NonNull Observable<DataSnapshot> upstream) {
         return upstream.map(new Function<DataSnapshot, DataValue<T>>() {
             @Override
             public DataValue<T> apply(DataSnapshot dataSnapshot) throws Exception {

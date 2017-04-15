@@ -7,9 +7,6 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.ProviderQueryResult;
 
-import android.support.annotation.CheckResult;
-import android.support.annotation.NonNull;
-
 import java.util.Collections;
 import java.util.List;
 import java.util.concurrent.Callable;
@@ -18,6 +15,8 @@ import io.reactivex.Completable;
 import io.reactivex.Maybe;
 import io.reactivex.Observable;
 import io.reactivex.Single;
+import io.reactivex.annotations.CheckReturnValue;
+import io.reactivex.annotations.NonNull;
 import io.reactivex.functions.Function;
 import rxtasks2.RxTask;
 
@@ -28,9 +27,9 @@ public final class RxFirebaseAuth {
      * @param instance
      * @return
      */
-    @CheckResult
+    @CheckReturnValue
     @NonNull
-    public static Observable<FirebaseAuth> authStateChanges(@NonNull FirebaseAuth instance) {
+    public static Observable<FirebaseAuth> changes(@NonNull FirebaseAuth instance) {
         return Observable.create(new AuthStateChangesOnSubscribe(instance));
     }
 
@@ -40,7 +39,7 @@ public final class RxFirebaseAuth {
      * @param password
      * @return
      */
-    @CheckResult
+    @CheckReturnValue
     @NonNull
     public static Single<FirebaseUser> createUserWithEmailAndPassword(
             @NonNull final FirebaseAuth instance,
@@ -61,7 +60,7 @@ public final class RxFirebaseAuth {
      * @param email
      * @return &lt;emptyList&gt; if providers is null
      */
-    @CheckResult
+    @CheckReturnValue
     @NonNull
     public static Single<List<String>> fetchProvidersForEmail(
             @NonNull final FirebaseAuth instance, @NonNull final String email) {
@@ -87,7 +86,7 @@ public final class RxFirebaseAuth {
      * @param instance
      * @return
      */
-    @CheckResult
+    @CheckReturnValue
     @NonNull
     public static Maybe<FirebaseUser> getCurrentUser(
             @NonNull final FirebaseAuth instance) {
@@ -99,7 +98,7 @@ public final class RxFirebaseAuth {
      * @param email
      * @return
      */
-    @CheckResult
+    @CheckReturnValue
     @NonNull
     public static Completable sendPasswordResetEmail(
             @NonNull final FirebaseAuth instance, @NonNull final String email) {
@@ -115,7 +114,7 @@ public final class RxFirebaseAuth {
      * @param instance
      * @return
      */
-    @CheckResult
+    @CheckReturnValue
     @NonNull
     public static Single<FirebaseUser> signInAnonymous(
             @NonNull final FirebaseAuth instance) {
@@ -131,7 +130,7 @@ public final class RxFirebaseAuth {
      * TODO: AuthToUserFunction class
      * @return
      */
-    @CheckResult
+    @CheckReturnValue
     @NonNull
     public static Function<AuthResult, FirebaseUser> authToUserFunction() {
         return new Function<AuthResult, FirebaseUser>() {
@@ -147,7 +146,7 @@ public final class RxFirebaseAuth {
      * @param credential
      * @return
      */
-    @CheckResult
+    @CheckReturnValue
     @NonNull
     public static Single<FirebaseUser> signInWithCredential(
             @NonNull final FirebaseAuth instance, @NonNull final AuthCredential credential) {
@@ -164,7 +163,7 @@ public final class RxFirebaseAuth {
      * @param token
      * @return
      */
-    @CheckResult
+    @CheckReturnValue
     @NonNull
     public static Single<FirebaseUser> signInWithCustomToken(
             @NonNull final FirebaseAuth instance, @NonNull final String token) {
@@ -182,7 +181,7 @@ public final class RxFirebaseAuth {
      * @param password
      * @return
      */
-    @CheckResult
+    @CheckReturnValue
     @NonNull
     public static Single<FirebaseUser> signInWithEmailAndPassword(
             @NonNull final FirebaseAuth instance,
@@ -199,7 +198,7 @@ public final class RxFirebaseAuth {
      * @param instance
      * @return
      */
-    @CheckResult
+    @CheckReturnValue
     @NonNull
     public static Completable signOut(@NonNull final FirebaseAuth instance) {
         return Completable.create(new SignOutOnSubscribe(instance));

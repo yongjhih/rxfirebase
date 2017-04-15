@@ -9,7 +9,6 @@ import io.reactivex.ObservableOnSubscribe;
 import io.reactivex.disposables.Disposables;
 import io.reactivex.functions.Action;
 
-
 final class AuthStateChangesOnSubscribe implements ObservableOnSubscribe<FirebaseAuth> {
 
     private final FirebaseAuth instance;
@@ -18,6 +17,9 @@ final class AuthStateChangesOnSubscribe implements ObservableOnSubscribe<Firebas
         this.instance = instance;
     }
 
+    /**
+     * @param emitter
+     */
     @Override
     public void subscribe(final ObservableEmitter<FirebaseAuth> emitter) {
         final FirebaseAuth.AuthStateListener listener = new FirebaseAuth.AuthStateListener() {

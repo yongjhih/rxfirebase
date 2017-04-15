@@ -7,20 +7,23 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GetTokenResult;
 import com.google.firebase.auth.UserProfileChangeRequest;
 
-import android.support.annotation.CheckResult;
-import android.support.annotation.NonNull;
-
 import java.util.concurrent.Callable;
 
 import io.reactivex.Completable;
 import io.reactivex.Single;
+import io.reactivex.annotations.CheckReturnValue;
+import io.reactivex.annotations.NonNull;
 import io.reactivex.functions.Function;
 import rxtasks2.RxTask;
 
 
 public final class RxFirebaseUser {
 
-    @CheckResult
+    /**
+     * @param user
+     * @return
+     */
+    @CheckReturnValue
     @NonNull
     public static Completable delete(@NonNull final FirebaseUser user) {
         return RxTask.completes(new Callable<Task<Void>>() {
@@ -31,7 +34,12 @@ public final class RxFirebaseUser {
         });
     }
 
-    @CheckResult
+    /**
+     * @param user
+     * @param forceRefresh
+     * @return
+     */
+    @CheckReturnValue
     @NonNull
     public static Single<String> getToken(@NonNull final FirebaseUser user,
                                           final boolean forceRefresh) {
@@ -49,7 +57,12 @@ public final class RxFirebaseUser {
         });
     }
 
-    @CheckResult
+    /**
+     * @param user
+     * @param credential
+     * @return
+     */
+    @CheckReturnValue
     @NonNull
     public static Single<FirebaseUser> linkWithCredential(
             @NonNull final FirebaseUser user, @NonNull final AuthCredential credential) {
@@ -61,7 +74,12 @@ public final class RxFirebaseUser {
         }).map(RxFirebaseAuth.authToUserFunction());
     }
 
-    @CheckResult
+    /**
+     * @param user
+     * @param credential
+     * @return
+     */
+    @CheckReturnValue
     @NonNull
     public static Completable reauthenticate(
             @NonNull final FirebaseUser user, @NonNull final AuthCredential credential) {
@@ -73,7 +91,11 @@ public final class RxFirebaseUser {
         });
     }
 
-    @CheckResult
+    /**
+     * @param user
+     * @return
+     */
+    @CheckReturnValue
     @NonNull
     public static Completable reload(@NonNull final FirebaseUser user) {
         return RxTask.completes(new Callable<Task<Void>>() {
@@ -84,7 +106,11 @@ public final class RxFirebaseUser {
         });
     }
 
-    @CheckResult
+    /**
+     * @param user
+     * @return
+     */
+    @CheckReturnValue
     @NonNull
     public static Completable sendEmailVerification(@NonNull final FirebaseUser user) {
         return RxTask.completes(new Callable<Task<Void>>() {
@@ -95,7 +121,12 @@ public final class RxFirebaseUser {
         });
     }
 
-    @CheckResult
+    /**
+     * @param user
+     * @param provider
+     * @return
+     */
+    @CheckReturnValue
     @NonNull
     public static Single<FirebaseUser> unlink(
             @NonNull final FirebaseUser user, @NonNull final String provider) {
@@ -107,7 +138,12 @@ public final class RxFirebaseUser {
         }).map(RxFirebaseAuth.authToUserFunction());
     }
 
-    @CheckResult
+    /**
+     * @param user
+     * @param email
+     * @return
+     */
+    @CheckReturnValue
     @NonNull
     public static Completable updateEmail(
             @NonNull final FirebaseUser user, @NonNull final String email) {
@@ -119,7 +155,12 @@ public final class RxFirebaseUser {
         });
     }
 
-    @CheckResult
+    /**
+     * @param user
+     * @param password
+     * @return
+     */
+    @CheckReturnValue
     @NonNull
     public static Completable updatePassword(
             @NonNull final FirebaseUser user, @NonNull final String password) {
@@ -131,7 +172,12 @@ public final class RxFirebaseUser {
         });
     }
 
-    @CheckResult
+    /**
+     * @param user
+     * @param request
+     * @return
+     */
+    @CheckReturnValue
     @NonNull
     public static Completable updateProfile(
             @NonNull final FirebaseUser user, @NonNull final UserProfileChangeRequest request) {

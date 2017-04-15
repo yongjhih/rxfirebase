@@ -59,7 +59,7 @@ dependencies {
     compile project(':rxfirebase2-config')
     compile "com.google.firebase:firebase-config:${firebaseVersion}"
 
-    compile 'io.reactivex.rxjava2:rxjava:2.0.1'
+    compile 'io.reactivex.rxjava2:rxjava:2.0.7'
     compile "org.jetbrains.kotlin:kotlin-stdlib:${kotlinVersion}"
 }
 

@@ -1,9 +1,6 @@
 package rxfirebase2.storage;
 
 import android.net.Uri;
-import android.support.annotation.CheckResult;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.storage.FileDownloadTask;
@@ -13,6 +10,9 @@ import com.google.firebase.storage.StreamDownloadTask;
 import com.google.firebase.storage.UploadTask;
 import io.reactivex.Completable;
 import io.reactivex.Single;
+import io.reactivex.annotations.CheckReturnValue;
+import io.reactivex.annotations.NonNull;
+import io.reactivex.annotations.Nullable;
 import rxtasks2.RxTask;
 
 import java.io.File;
@@ -28,7 +28,7 @@ public final class RxFirebaseStorage {
     /**
      * @see StorageReference#getBytes(long)
      */
-    @CheckResult
+    @CheckReturnValue
     @NonNull
     public static Single<byte[]> getBytes(@NonNull final StorageReference ref,
                                           final long maxDownloadSizeBytes) {
@@ -43,7 +43,7 @@ public final class RxFirebaseStorage {
     /**
      * @see StorageReference#delete()
      */
-    @CheckResult
+    @CheckReturnValue
     @NonNull
     public static Completable delete(@NonNull final StorageReference ref) {
         return RxTask.completes(new Callable<Task<Void>>() {
@@ -57,7 +57,7 @@ public final class RxFirebaseStorage {
     /**
      * @see StorageReference#getFile(Uri)
      */
-    @CheckResult
+    @CheckReturnValue
     @NonNull
     public static Single<FileDownloadTask.TaskSnapshot> getFile(@NonNull final StorageReference ref,
                                                                 @NonNull final Uri uri) {
@@ -72,7 +72,7 @@ public final class RxFirebaseStorage {
     /**
      * @see StorageReference#getFile(File)
      */
-    @CheckResult
+    @CheckReturnValue
     @NonNull
     public static Single<FileDownloadTask.TaskSnapshot> getFile(@NonNull final StorageReference ref,
                                                                 @NonNull final File file) {
@@ -87,7 +87,7 @@ public final class RxFirebaseStorage {
     /**
      * @see StorageReference#getMetadata()
      */
-    @CheckResult
+    @CheckReturnValue
     @NonNull
     public static Single<StorageMetadata> getMetadata(@NonNull final StorageReference ref) {
         return RxTask.single(new Callable<Task<StorageMetadata>>() {
@@ -101,7 +101,7 @@ public final class RxFirebaseStorage {
     /**
      * @see StorageReference#getStream()
      */
-    @CheckResult
+    @CheckReturnValue
     @NonNull
     public static Single<StreamDownloadTask.TaskSnapshot> getStream(@NonNull final StorageReference ref) {
         return RxTask.single(new Callable<Task<StreamDownloadTask.TaskSnapshot>>() {
@@ -115,7 +115,7 @@ public final class RxFirebaseStorage {
     /**
      * @see StorageReference#getStream(StreamDownloadTask.StreamProcessor)
      */
-    @CheckResult
+    @CheckReturnValue
     @NonNull
     public static Single<StreamDownloadTask.TaskSnapshot> getStream(
             @NonNull final StorageReference ref,
@@ -131,7 +131,7 @@ public final class RxFirebaseStorage {
     /**
      * @see StorageReference#getDownloadUrl()
      */
-    @CheckResult
+    @CheckReturnValue
     @NonNull
     public static Single<Uri> getDownloadUrl(@NonNull final StorageReference ref) {
         return RxTask.single(new Callable<Task<Uri>>() {
@@ -145,7 +145,7 @@ public final class RxFirebaseStorage {
     /**
      * @see StorageReference#putBytes(byte[])
      */
-    @CheckResult
+    @CheckReturnValue
     @NonNull
     public static Single<UploadTask.TaskSnapshot> putBytes(@NonNull final StorageReference ref,
                                                            @NonNull final byte[] bytes) {
@@ -160,7 +160,7 @@ public final class RxFirebaseStorage {
     /**
      * @see StorageReference#putBytes(byte[], StorageMetadata)
      */
-    @CheckResult
+    @CheckReturnValue
     @NonNull
     public static Single<UploadTask.TaskSnapshot> putBytes(
             @NonNull final StorageReference ref,
@@ -177,7 +177,7 @@ public final class RxFirebaseStorage {
     /**
      * @see StorageReference#putFile(Uri)
      */
-    @CheckResult
+    @CheckReturnValue
     @NonNull
     public static Single<UploadTask.TaskSnapshot> putFile(@NonNull final StorageReference ref,
                                                           @NonNull final Uri uri) {
@@ -192,7 +192,7 @@ public final class RxFirebaseStorage {
     /**
      * @see StorageReference#putFile(Uri, StorageMetadata)
      */
-    @CheckResult
+    @CheckReturnValue
     @NonNull
     public static Single<UploadTask.TaskSnapshot> putFile(
             @NonNull final StorageReference ref,
@@ -209,7 +209,7 @@ public final class RxFirebaseStorage {
     /**
      * @see StorageReference#putFile(Uri, StorageMetadata, Uri)
      */
-    @CheckResult
+    @CheckReturnValue
     @NonNull
     public static Single<UploadTask.TaskSnapshot> putFile(
             @NonNull final StorageReference ref,
@@ -227,7 +227,7 @@ public final class RxFirebaseStorage {
     /**
      * @see StorageReference#putStream(InputStream)
      */
-    @CheckResult
+    @CheckReturnValue
     @NonNull
     public static Single<UploadTask.TaskSnapshot> putStream(
             @NonNull final StorageReference ref,
@@ -243,7 +243,7 @@ public final class RxFirebaseStorage {
     /**
      * @see StorageReference#putStream(InputStream, StorageMetadata)
      */
-    @CheckResult
+    @CheckReturnValue
     @NonNull
     public static Single<UploadTask.TaskSnapshot> putStream(
             @NonNull final StorageReference ref,
@@ -260,7 +260,7 @@ public final class RxFirebaseStorage {
     /**
      * @see StorageReference#updateMetadata(StorageMetadata)
      */
-    @CheckResult
+    @CheckReturnValue
     @NonNull
     public static Single<StorageMetadata> updateMetadata(
             @NonNull final StorageReference ref,

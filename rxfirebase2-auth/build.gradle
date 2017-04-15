@@ -32,9 +32,7 @@ android {
 }
 
 dependencies {
-    compile 'com.github.yongjhih.rxtasks:rxtasks2:0.0.2'
-
-    compile rootProject.ext.supportAnnotations
+    compile 'com.github.yongjhih.rxtasks:rxtasks2:0.0.3'
 
     provided rootProject.ext.firebaseAuth
     provided rootProject.ext.rxJava2

@@ -10,42 +10,42 @@ import io.reactivex.Maybe
 import io.reactivex.Observable
 import io.reactivex.Single
 
-inline fun FirebaseAuth.authStateChanges()
+inline fun FirebaseAuth.changes()
         : Observable<FirebaseAuth>
-        = RxFirebaseAuth.authStateChanges(this)
+        = RxFirebaseAuth.changes(this)
 
-inline fun FirebaseAuth.rxCreateUserWithEmailAndPassword(email: String, password: String)
+inline fun FirebaseAuth.createsUserWithEmailAndPassword(email: String, password: String)
         : Single<FirebaseUser>
         = RxFirebaseAuth.createUserWithEmailAndPassword(this, email, password)
 
-inline fun FirebaseAuth.rxFetchProvidersForEmail(email: String)
+inline fun FirebaseAuth.fetchesProvidersForEmail(email: String)
         : Single<List<String>>
         = RxFirebaseAuth.fetchProvidersForEmail(this, email)
 
-inline fun FirebaseAuth.rxGetCurrentUser()
+inline fun FirebaseAuth.getsCurrentUser()
         : Maybe<FirebaseUser>
         = RxFirebaseAuth.getCurrentUser(this)
 
-inline fun FirebaseAuth.rxSendPasswordResetEmail(email: String)
+inline fun FirebaseAuth.sendsPasswordResetEmail(email: String)
         : Completable
         = RxFirebaseAuth.sendPasswordResetEmail(this, email)
 
-inline fun FirebaseAuth.rxSignInAnonymous()
+inline fun FirebaseAuth.signsInAnonymous()
         : Single<FirebaseUser>
         = RxFirebaseAuth.signInAnonymous(this)
 
-inline fun FirebaseAuth.rxSignInWithCredential(credential: AuthCredential)
+inline fun FirebaseAuth.signsInWithCredential(credential: AuthCredential)
         : Single<FirebaseUser>
         = RxFirebaseAuth.signInWithCredential(this, credential)
 
-inline fun FirebaseAuth.rxSignInWithCustomToken(token: String)
+inline fun FirebaseAuth.signsInWithCustomToken(token: String)
         : Single<FirebaseUser>
         = RxFirebaseAuth.signInWithCustomToken(this, token)
 
-inline fun FirebaseAuth.rxSignInWithEmailAndPassword(email: String, password: String)
+inline fun FirebaseAuth.signsInWithEmailAndPassword(email: String, password: String)
         : Single<FirebaseUser>
         = RxFirebaseAuth.signInWithEmailAndPassword(this, email, password)
 
-inline fun FirebaseAuth.rxSignOut()
+inline fun FirebaseAuth.signsOut()
         : Completable
         = RxFirebaseAuth.signOut(this)

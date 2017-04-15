@@ -992,6 +992,25 @@ public class RxFirebaseDatabaseTest {
     }
 
     @Test
+    public void testRunTransactionLocal() throws Exception {
+        TestObserver sub = TestObserver.create();
+
+        RxFirebaseDatabase
+                .runTransaction(mockDatabaseReference, mockTransactionTask, true)
+                .subscribe(sub);
+
+        verifyRunTransactionLocal();
+
+        callTransactionOnComplete();
+        verifyTransactionTaskCall();
+
+        sub.assertComplete();
+        sub.assertNoErrors();
+
+        sub.dispose();
+    }
+
+    @Test
     public void testRunTransaction_onError() {
         TestObserver sub = TestObserver.create();
 
@@ -1040,6 +1059,11 @@ public class RxFirebaseDatabaseTest {
     }
 
     private void verifyRunTransaction() {
+        verify(mockDatabaseReference)
+                .runTransaction(transactionHandler.capture());
+    }
+
+    private void verifyRunTransactionLocal() {
         verify(mockDatabaseReference)
                 .runTransaction(transactionHandler.capture(), anyBoolean());
     }

@@ -21,19 +21,19 @@ See [official documentation](https://firebase.google.com/docs/) for the details.
 ## Installation
 
 ```gradle
-compile 'com.yongjhih.rxfirebase:rxfirebase2-config:0.0.1'
-compile 'com.yongjhih.rxfirebase:rxfirebase2-config-kotlin:0.0.1' // optional
-compile 'com.yongjhih.rxfirebase:rxfirebase2-auth:0.0.1'
-compile 'com.yongjhih.rxfirebase:rxfirebase2-auth-kotlin:0.0.1' // optional
-compile 'com.yongjhih.rxfirebase:rxfirebase2-database:0.0.1'
-compile 'com.yongjhih.rxfirebase:rxfirebase2-database-kotlin:0.0.1' // optional
+compile 'com.yongjhih.rxfirebase:rxfirebase2-config:-SNAPSHOT'
+compile 'com.yongjhih.rxfirebase:rxfirebase2-config-kotlin:-SNAPSHOT' // for kotlin
+compile 'com.yongjhih.rxfirebase:rxfirebase2-auth:-SNAPSHOT'
+compile 'com.yongjhih.rxfirebase:rxfirebase2-auth-kotlin:-SNAPSHOT' // for kotlin
+compile 'com.yongjhih.rxfirebase:rxfirebase2-database:-SNAPSHOT'
+compile 'com.yongjhih.rxfirebase:rxfirebase2-database-kotlin:-SNAPSHOT' // for kotlin
+compile 'com.yongjhih.rxfirebase:rxfirebase2-storage:-SNAPSHOT'
+compile 'com.yongjhih.rxfirebase:rxfirebase2-storage-kotlin:-SNAPSHOT' // for kotlin
 
 // TODO: compile 'com.yongjhih.rxfirebase:rxfirebase2-messaging:10.2.1'
 // TODO: compile 'com.yongjhih.rxfirebase:rxfirebase2-messaging-kotlin:10.2.1'
 // TODO: compile 'com.yongjhih.rxfirebase:rxfirebase2-crash:10.2.1'
 // TODO: compile 'com.yongjhih.rxfirebase:rxfirebase2-crash-kotlin:10.2.1'
-// TODO: compile 'com.yongjhih.rxfirebase:rxfirebase2-storage:10.2.1'
-// TODO: compile 'com.yongjhih.rxfirebase:rxfirebase2-storage-kotlin:10.2.1'
 
 // TODO: compile 'com.yongjhih.rxfirebase:rxfirebase2-invites:10.2.1'
 // TODO: compile 'com.yongjhih.rxfirebase:rxfirebase2-invites-kotlin:10.2.1'

@@ -3,6 +3,8 @@ package rxfirebase2.database.transformers;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.GenericTypeIndicator;
 
+import io.reactivex.annotations.CheckReturnValue;
+import io.reactivex.annotations.NonNull;
 import rxfirebase2.database.model.DataValue;
 
 import io.reactivex.Observable;
@@ -15,12 +17,14 @@ public final class TransformerOfGenericTypeIndicator<T>
 
     private GenericTypeIndicator<T> typeIndicator;
 
-    public TransformerOfGenericTypeIndicator(GenericTypeIndicator<T> indicator) {
+    public TransformerOfGenericTypeIndicator(@NonNull GenericTypeIndicator<T> indicator) {
         this.typeIndicator = indicator;
     }
 
     @Override
-    public ObservableSource<DataValue<T>> apply(Observable<DataSnapshot> upstream) {
+    @NonNull
+    @CheckReturnValue
+    public ObservableSource<DataValue<T>> apply(@NonNull Observable<DataSnapshot> upstream) {
         return upstream.map(new Function<DataSnapshot, DataValue<T>>() {
             @Override
             public DataValue<T> apply(DataSnapshot dataSnapshot) throws Exception {
