@@ -32,7 +32,7 @@ android {
 }
 
 dependencies {
-    compile 'com.github.yongjhih.rxtasks:rxtasks2:0.0.1'
+    compile 'com.github.yongjhih.rxtasks:rxtasks2:0.0.2'
 
     compile rootProject.ext.supportAnnotations
 
