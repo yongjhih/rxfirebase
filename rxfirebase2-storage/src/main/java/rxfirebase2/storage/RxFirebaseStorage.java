@@ -103,7 +103,8 @@ public final class RxFirebaseStorage {
      */
     @CheckReturnValue
     @NonNull
-    public static Single<StreamDownloadTask.TaskSnapshot> getStream(@NonNull final StorageReference ref) {
+    public static Single<StreamDownloadTask.TaskSnapshot> getStream(
+            @NonNull final StorageReference ref) {
         return RxTask.single(new Callable<Task<StreamDownloadTask.TaskSnapshot>>() {
             @Override
             public Task<StreamDownloadTask.TaskSnapshot> call() throws Exception {

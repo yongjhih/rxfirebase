@@ -15,7 +15,7 @@ dependencies:
 
 test:
   override:
-    - ./gradlew check --console=plain
+    - ./gradlew test --console=plain
   post:
     - ./gradlew jacocoTestReport
     - bash <(curl -s https://codecov.io/bash)
