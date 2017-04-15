@@ -41,36 +41,32 @@ inline fun <reified T : Any> DatabaseReference.dataOf(typeIndicator: GenericType
         : Single<T>
         = RxFirebaseDatabase.dataOf(this, typeIndicator)
 
-inline fun DatabaseReference.rxChildEvents()
-        : Observable<ChildEvent>
-        = RxFirebaseDatabase.childEvents(this)
-
-inline fun DatabaseReference.rxRemoveValue()
+inline fun DatabaseReference.removesValue()
         : Completable
         = RxFirebaseDatabase.removeValue(this)
 
-inline fun DatabaseReference.rxRunTransaction(noinline task: (MutableData) -> Transaction.Result)
+inline fun DatabaseReference.runsTransaction(noinline task: (MutableData) -> Transaction.Result)
         : Completable
         = RxFirebaseDatabase.runTransaction(this, task)
 
-inline fun DatabaseReference.rxRunTransaction(
+inline fun DatabaseReference.runsTransaction(
         fireLocalEvents: Boolean, noinline task: (MutableData) -> Transaction.Result)
         : Completable
         = RxFirebaseDatabase.runTransaction(this, fireLocalEvents, task)
 
-inline fun DatabaseReference.rxSetPriority(priority: Any)
+inline fun DatabaseReference.setsPriority(priority: Any)
         : Completable
         = RxFirebaseDatabase.setPriority(this, priority)
 
-inline fun <reified T : Any> DatabaseReference.rxSetValue(value: T)
+inline fun <reified T : Any> DatabaseReference.setsValue(value: T)
         : Completable
         = RxFirebaseDatabase.setValue(this, value)
 
-inline fun <reified T : Any> DatabaseReference.rxSetValue(value: T, priority: Any)
+inline fun <reified T : Any> DatabaseReference.setsValue(value: T, priority: Any)
         : Completable
         = RxFirebaseDatabase.setValue(this, value, priority)
 
-inline fun DatabaseReference.rxUpdateChildren(update: Map<String, Any?>)
+inline fun DatabaseReference.updatesChildren(update: Map<String, Any?>)
         : Completable
         = RxFirebaseDatabase.updateChildren(this, update)
 
