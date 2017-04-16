@@ -2,6 +2,9 @@
 [![CircleCI](https://circleci.com/gh/yongjhih/rxfirebase.svg?style=shield)](https://circleci.com/gh/yongjhih/rxfirebase)
 [![codecov](https://codecov.io/gh/yongjhih/rxfirebase/branch/master/graph/badge.svg)](https://codecov.io/gh/yongjhih/rxfirebase)
 
+
+![](art/rxfirebase.png)
+
 RxJava binding APIs for [Firebase](https://firebase.google.com/) Android SDK.
 
 ## Usage
