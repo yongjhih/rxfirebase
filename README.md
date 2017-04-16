@@ -1,4 +1,6 @@
 # RxFirebase
+
+[![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-RxFirebase-brightgreen.svg?style=flat)](https://android-arsenal.com/details/1/5594)
 [![CircleCI](https://circleci.com/gh/yongjhih/rxfirebase.svg?style=shield)](https://circleci.com/gh/yongjhih/rxfirebase)
 [![codecov](https://codecov.io/gh/yongjhih/rxfirebase/branch/master/graph/badge.svg)](https://codecov.io/gh/yongjhih/rxfirebase)
 
