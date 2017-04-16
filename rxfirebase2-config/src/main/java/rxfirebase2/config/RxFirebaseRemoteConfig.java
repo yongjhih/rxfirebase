@@ -27,8 +27,8 @@ public final class RxFirebaseRemoteConfig {
     @CheckReturnValue
     @NonNull
     public static Completable fetches(@NonNull final FirebaseRemoteConfig config,
-                                      final long timeout) {
-        return RxTask.completes(config.fetch(timeout)).doOnComplete(new Action() {
+                                      final long expiration) {
+        return RxTask.completes(config.fetch(expiration)).doOnComplete(new Action() {
             @Override
             public void run() throws Exception {
                 config.activateFetched();
