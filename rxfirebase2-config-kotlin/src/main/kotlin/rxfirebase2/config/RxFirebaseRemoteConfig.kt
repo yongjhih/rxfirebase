@@ -13,3 +13,11 @@ import io.reactivex.Single
 inline fun FirebaseRemoteConfig.fetches()
         : Completable
         = RxFirebaseRemoteConfig.fetches(this)
+
+inline fun FirebaseRemoteConfig.fetches(timeout: Long)
+        : Completable
+        = RxFirebaseRemoteConfig.fetches(this, timeout)
+
+inline fun FirebaseRemoteConfig.fetchesDev()
+        : Completable
+        = RxFirebaseRemoteConfig.fetchesDev(this)

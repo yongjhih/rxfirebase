@@ -16,13 +16,30 @@ public final class RxFirebaseRemoteConfig {
     @CheckReturnValue
     @NonNull
     public static Completable fetches(@NonNull final FirebaseRemoteConfig config) {
-        return RxTask.completes(
-                config.fetch((config.getInfo().getConfigSettings().isDeveloperModeEnabled())
-                        ? 0L : 3600L)).doOnComplete(new Action() {
+        return RxTask.completes(config.fetch()).doOnComplete(new Action() {
             @Override
             public void run() throws Exception {
                 config.activateFetched();
             }
         });
+    }
+
+    @CheckReturnValue
+    @NonNull
+    public static Completable fetches(@NonNull final FirebaseRemoteConfig config,
+                                      final long timeout) {
+        return RxTask.completes(config.fetch(timeout)).doOnComplete(new Action() {
+            @Override
+            public void run() throws Exception {
+                config.activateFetched();
+            }
+        });
+    }
+
+    @CheckReturnValue
+    @NonNull
+    public static Completable fetchesDev(@NonNull final FirebaseRemoteConfig config) {
+        return fetches(config, (config.getInfo().getConfigSettings().isDeveloperModeEnabled())
+                ? 0L : 3600L);
     }
 }
