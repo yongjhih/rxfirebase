@@ -53,6 +53,8 @@ compile 'com.yongjhih.rxfirebase:rxfirebase2-storage-kotlin:-SNAPSHOT' // for ko
 | ezhome/Android-RxFirebase |       -       | -       | -      |     x     | -       | -       | x    | x        | -       | -      | -      | -          |
 | b3er/RxFirebase2          |       x       | x       | x      |     x     | !       | -       | x    | x        | x       | -      | -      | -          |
 | ashdavies/rx-firebase     |       -       | x       | -      |     x     | x       | -       | x    | x        | -       | -      | -      | -          |
+| FrangSierra/Rx2Firebase   |       -       | x       | -      |     x     | -       | x       | x    | x        | x       | -      | -      | -          |
+
 
 ## See Also
 
