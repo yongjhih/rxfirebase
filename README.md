@@ -15,8 +15,6 @@ RxJava binding APIs for [Firebase](https://firebase.google.com/) Android SDK.
 RxFirebaseAuth.changes(FirebaseAuth.getInstance()).subscribe();
 ```
 
-kotlin:
-
 ```kt
 FirebaseAuth.getInstance().changes().subscribe()
 ```
@@ -24,8 +22,6 @@ FirebaseAuth.getInstance().changes().subscribe()
 ```java
 RxFirebaseRemoteConfig.fetches(firebaseRemoteConfig).subscribe();
 ```
-
-Kotlin:
 
 ```kt
 firebaseRemoteConfig.fetches().subscribe();
@@ -46,7 +42,7 @@ RxFirebaseAuth.signInAnonymous(FirebaseAuth.getInstance()).subscribe();
 ```java
 RxFirebaseUser.updateProfile(user, new UserProfileChangeRequest.Builder()
         .setDisplayName("Andrew Chen")
-        .setPhotoUri(Uri.parse("https://my.photo/andrew.chen"))
+        .setPhotoUri(Uri.parse("https://github.com/yongjhih/rxfirebase/art/rxfirebase.png"))
         .build())
         .subscribe();
 ```
