@@ -1,6 +1,6 @@
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
-//apply plugin: 'jacoco-android'
+apply plugin: 'jacoco-android'
 
 android {
     compileSdkVersion rootProject.ext.compileSdkVersion
@@ -46,4 +46,4 @@ dependencies {
 
 apply from: 'javadoc.gradle'
 apply plugin: 'com.github.dcendents.android-maven'
-apply from: 'jacoco.gradle'
+//apply from: 'jacoco.gradle'
