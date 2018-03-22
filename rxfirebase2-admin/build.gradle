@@ -1,0 +1,15 @@
+apply plugin: 'java'
+
+dependencies {
+    compile 'com.google.firebase:firebase-admin:5.9.0'
+
+    compile rootProject.ext.rxJava2
+
+    testCompile rootProject.ext.assertj
+    testCompile rootProject.ext.junit
+    testCompile rootProject.ext.mockito
+}
+
+apply from: 'javadoc.gradle'
+apply plugin: 'maven'
+//apply from: 'jacoco.gradle'
